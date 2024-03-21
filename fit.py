@@ -82,7 +82,7 @@ class Model():
       x[t]=x[t-1]@A+b+dsigma*np.random.randn(2)
       x[t][x[t]<0]=0
     
-      if x[t][0]>self.get_boundary(t*self.dt):
+      if x[t][0]>self.get_boundary(t*self.dt) and x[t][0]>x[t][1]:
         choice=1
         rt=t*self.dt+self.t0
         conf=self.evd2conf(x[t][0]-self.w_unchosen*x[t][1])
